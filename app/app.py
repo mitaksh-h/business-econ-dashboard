@@ -649,8 +649,8 @@ st.markdown('</div>', unsafe_allow_html=True)
 # NEW TAB: Advanced KPIs
 # ------------------------------------------------------------
 if enable_advanced:
-    adv_tab1, adv_tab2, adv_tab3, adv_tab4, adv_tab5, adv_tab6 = st.tabs([
-        "Pro KPIs", "Cohorts", "Operations", "What-If Lab 2.0", "User Segments", "Data Dictionary"
+    adv_tab1, adv_tab2, adv_tab4, adv_tab5, adv_tab6 = st.tabs([
+        "Pro KPIs", "Cohorts", "What-If Lab 2.0", "User Segments", "Data Dictionary"
     ])
 
 
@@ -716,21 +716,6 @@ if enable_advanced:
 
         st.dataframe(cohort)
         st.line_chart(cohort.T)
-
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    # ===================== OPERATIONS TAB =====================
-    with adv_tab3:
-        st.markdown('<div class="section-panel">', unsafe_allow_html=True)
-        st.markdown('<div class="section-title">Operational KPIs</div>', unsafe_allow_html=True)
-
-        st.write("Delivery time distribution:")
-        if "delivery_time" in df:
-            st.bar_chart(df["delivery_time"].value_counts().sort_index())
-
-        st.write("Cancellation reasons:")
-        if "cancel_reason" in df:
-            st.bar_chart(df["cancel_reason"].value_counts())
 
         st.markdown('</div>', unsafe_allow_html=True)
 
